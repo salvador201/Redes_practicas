@@ -1,30 +1,6 @@
-Rafael Robles Rios 
 Aaron Guerrero
+Rafael Robles Rios
 
-¿ Que pasa si la red esporadicamente pierde paquetes, como afectaria esto al audio y al video ?
+1) tenemos que si en el ecaso anterior los mensajes eran enviados usando dos paquetes entonces ahora con las nuevas funciones se aumenta el trafico de red aumento un tercio por cada cliente que se comunica si se comunica con dos clientes aumentaria un 200% ya que en vez de enviar 2 paquetes se envian 6 paquetes
 
-si se pierde paquetes de audio tenemos que el video se puede contintinuar, pero no se eschuca el audio, si tenemos que se pierde un paquete de video tenemos que se conjela la imagen pero si llegan los paquetes de audio solo se reproducen estos
-
-Respecto a la pregunta anterior, ¿como afecta esta situacion al desempeno de la red ?
-
-puede ser que la red este saturada y por eso este perdiendo paquetes ya que los tiene que tirar 
-
-¿Que solucion puede darse para evitar los problemas de las preguntas anteriores, y en que capa del modelo y si suele resolverse ?
- 
-puede tomar un retraso para mandar los al servidor lo que haria que el flujo de la red sea mas despacio, pero afectaria el flujo de la conversacion 
-
-Ademas de las preguntas, se debe agregar un pequeno reporte de las particularidades de su codigo, como son:
-
-• Cual es el flujo del programa y para que sirve cada archivo dentro de la carpeta GUI y Channel.
-
-    - Correr "python Main.py" de ña carpeta Principal 
-    - ingresar el puerto de los usuario 
-    - elejir el boton de video 
-    - iniciar la conversacion
-    - cerrar las ventanas al terminar
- 
-
-• Principales problemas que se encontraron y como los solucionaron.
-    problemas que ocurrieron fueron que el cliente no respondia al abrir la aplicacion, se crearon hilos para usarlo de forma idependiente
-
-• Problemas que no fueron solucionados.
+2) Tenemos que con tres clientes que esten platicando tenemos que los mensajes que se envian alas vez son 6 paquetes donde aumentaria el trafica en la red

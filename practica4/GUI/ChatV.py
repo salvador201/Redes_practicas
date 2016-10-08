@@ -17,8 +17,9 @@ from auxP import aux
 
 
 class VentanaC:
-    def __init__(self,p1):
+    def __init__(self,p1,IP):
         self.puerto=p1
+        self.IP=IP
         
     def recarga(self,ven):
         self.ventana=ven
@@ -27,7 +28,7 @@ class VentanaC:
         if  self.miTexto.get() != "":
             self.comentario.insert(END,'-----------')
             self.comentario.insert(END ,self.miTexto.get())
-            self.enviarM(self.puerto)
+            self.enviarM(self.puerto,self.IP)
         else:
             self.comentario.insert(END,' ////')
     
@@ -61,10 +62,10 @@ class VentanaC:
         botonVideo.pack()
         self.ventanaChat.mainloop()
     
-    def enviarM(self,p1):
+    def enviarM(self,p1,IP):
         #abrimos los puertos y la comunicacion
         H=MisHilos()
-        self.respuesta=H.Paquete(int(p1),self.miTexto.get())
+        self.respuesta=H.Paquete(int(p1),self.miTexto.get(),IP)
         print self.respuesta
         #self.muere()
     

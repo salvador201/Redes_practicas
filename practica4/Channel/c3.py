@@ -2,9 +2,9 @@ import xmlrpclib
 
 class Cliente:
     var=''
-    def crea(self,puerto=8000,mem='hola'):
+    def crea(self,puerto=8000,mem='hola',IP='localhost'):
         self.puerto=puerto
-        self.s = xmlrpclib.ServerProxy('http://localhost:'+str(puerto))
+        self.s = xmlrpclib.ServerProxy('http://'+IP+':'+str(puerto))
         #lee el mesanje
         self.var=mem
     

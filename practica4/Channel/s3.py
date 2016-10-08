@@ -7,8 +7,8 @@ class MyFuncs:
 # Funcion server
 class FuncionS():
     
-    def abre(self,puerto=8000):
-        self.server = SimpleXMLRPCServer(("localhost", puerto))
+    def abre(self,puerto=8000,IP='127.0.0.1'):
+        self.server = SimpleXMLRPCServer((IP, puerto))
         self.server.register_instance(MyFuncs())
         self.server.serve_forever()
 

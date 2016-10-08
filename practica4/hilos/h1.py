@@ -9,22 +9,23 @@ from s3 import FuncionS
 
 
 class Corre:
-    texto=''
-    def __init__(self,puerto,mensaje):
+    
+    def __init__(self,puerto,mensaje,IP):
         self.p=puerto
         self.m=mensaje
+        self.IP=IP
     
 #servidor
     def Servi(self):
         self.ser=FuncionS() 
-        self.ser.abre(self.p)
+        self.ser.abre(self.p,self.IP)
 
 #cliente
     def Cli(self):
-        global texto
+        
         c=Cliente()        
-        c.crea(self.p,self.m)
-        texto= c.respuesta()
+        c.crea(self.p,self.m,self.IP)
+        self.texto= c.respuesta()
 
         self.Pantalla()
         
@@ -33,13 +34,13 @@ class Corre:
         self.ser.cerrar()
     
     def Pri(self):
-        global texto
-        return texto   
+        self.texto='a'
+        return self.texto   
         
     
 class MisHilos:
-    def Paquete(self,puerto,mensaje):
-        x=Corre(puerto,mensaje)    
+    def Paquete(self,puerto,mensaje,IP):
+        x=Corre(puerto,mensaje,IP)    
         
         #creo los hilos de servidor y cliente
         t1 = threading.Thread(target=x.Servi, args=())

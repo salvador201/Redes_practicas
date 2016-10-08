@@ -4,7 +4,7 @@ import threading
 import thread
 import time
 
-class Ventana:
+class Session:
     def mostrar(ventana):
         ventana.deiconify()
 
@@ -18,50 +18,34 @@ class Ventana:
         self.ventanaInicio.withdraw()
         self.ventanaInicio.destroy()
         
-                
-    def Login(self,lista_c):
+    def inicia(self):
         self.ventanaInicio = Tk()
         self.ventanaInicio.resizable(0,0)
-        self.ventanaInicio.geometry("400x600")
+        self.ventanaInicio.geometry("400x200")
         
-        self.miPuerto=StringVar()
+        self.usuario=StringVar()
         self.textoentry_1=StringVar()
         
         self.contra=StringVar()
         self.textoentry_2=StringVar()
         
-        self.IPContacto=StringVar()
-        self.textoentry_3=StringVar()
-        
-        self.LabelMiPuerto = Label(self.ventanaInicio, text="Cual es mi puerto?").pack()
+        self.LabelMiPuerto = Label(self.ventanaInicio, text="Cual tu usuario?").pack()
         
         self.entry1=Entry(self.ventanaInicio,textvar=self.textoentry_1).pack()
-        self.label1=Label(self.ventanaInicio,textvar=self.miPuerto).pack()
+        self.label1=Label(self.ventanaInicio,textvar=self.usuario).pack()
 
-        self.LabelMiPuerto = Label(self.ventanaInicio, text="escribe un puerto de un contacto disponible").pack()
-        
-        for i in lista_c:
-            self.LabelMiPuerto = Label(self.ventanaInicio, text=i).pack()
+        self.LabelMiPuerto = Label(self.ventanaInicio, text="Cual es tu contrasena?").pack()
 
         self.entry2=Entry(self.ventanaInicio,textvar=self.textoentry_2).pack()
         self.label2=Label(self.ventanaInicio,textvar=self.contra).pack()
         
-        self.LabelMiIP = Label(self.ventanaInicio, text="Cual es tu IP?").pack()
-
-        self.entry3=Entry(self.ventanaInicio,textvar=self.textoentry_3).pack()
-        self.label3=Label(self.ventanaInicio,textvar=self.IPContacto).pack()
-        
         botonIngresar=Button(self.ventanaInicio,text="Acceder",command=lambda:
-        self.DaPuertos(self.textoentry_1.get(),self.miPuerto,self.textoentry_2.get(),self.contra)).pack()
-        
+        self.DaPuertos(self.textoentry_1.get(),self.usuario,self.textoentry_2.get(),self.contra)).pack()
         
         self.ventanaInicio.mainloop()
         res=[]
         res.append(self.textoentry_1.get())
         res.append(self.textoentry_2.get())
-        res.append(self.textoentry_3.get())
-        return res
-
-
         
-    
+        return res  
+        
